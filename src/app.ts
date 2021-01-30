@@ -8,8 +8,6 @@ const app: Application = express();
  
 const port = process.env.PORT;
 
-
-
 // parse application/json
 app.use(json())
  
@@ -104,16 +102,14 @@ app.post('/validate-rule', (req: Request, res: Response) => {
 
 app.all('*', (req: Request, res: Response) => {
   const responseData:  ResponseData<any> = {
-    message: `Can't find ${req.originalUrl} on this server!`,
+    message: `Cannot find ${req.originalUrl} on this server!`,
     status: "error",
     data: null
   }
-return res.status(400).send(responseData);
+return res.status(404).send(responseData);
    
 });
 
 app.listen(port, function () {
     console.log(`App is listening on port ${port} !`)
 })
-
-// if (!Array.isArray(a) && typeof a !== 'object' && typeof a !== 'string') {}
