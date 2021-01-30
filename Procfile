@@ -1,1 +1,1 @@
-web: nodemon ./build/src/app.js
+web: npm start
