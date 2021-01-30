@@ -30,12 +30,11 @@ app.get('/', (req: Request, res: Response) => {
         name: "Chahur, Terver Timothy",
         github: "@tervware",
         email: "terv.software@gmail.com",
-        mobile: "08130129715",
-        twitter: null
+        mobile: "08130129715"
     };
 
     const responseData:  ResponseData<User> = {
-      message: "My profile details.",
+      message: "My Rule-Validation API",
       status: "success",
       data: user
     };

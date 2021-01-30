@@ -19,7 +19,7 @@ export  interface User {
         github: string;
         email: string;
         mobile: string;
-        twitter: string | null;
+        twitter?: string;
     };
 
 export  interface ValidationData {   
