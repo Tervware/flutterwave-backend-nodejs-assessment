@@ -30,6 +30,9 @@ const { field, condition, condition_value } = rule;
     throw new Error("rule.field is required.");
   }
 
+  if (typeof field !== 'string') {
+    throw new Error(`${field} should be a string.`);
+  }
   // Split field levels into array
   const fieldLevels: string[] = field.split(".")
 
