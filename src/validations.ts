@@ -26,7 +26,7 @@ const { field, condition, condition_value } = rule;
  
 // VALIDATE FIELD
   //  field is required
-  if (!field) {
+  if (!rule.hasOwnProperty("field")) {
     throw new Error("rule.field is required.");
   }
 
@@ -50,7 +50,7 @@ const { field, condition, condition_value } = rule;
 // VALIDATE CONDITION
   const conditions: string[] = ["eq" ,"neq", "gt", "gte", "contains"];
   // condition  is required
-  if (!condition) {
+  if (!rule.hasOwnProperty("condition")) {
     throw new Error("condition is required.");
   }
    // condition  must be  valid 
