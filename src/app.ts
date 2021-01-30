@@ -1,3 +1,4 @@
+require("dotenv").config();
 import express, { Application, Request, Response, NextFunction , Errback} from 'express';
 import {json} from 'body-parser';
 import  { User, ResponseData, ValidationData } from './types';
@@ -5,7 +6,7 @@ import  { validateRequestBody, isInValidRule } from './validations';
 
 const app: Application = express();
  
-const port: number = 3001;
+const port = process.env.PORT;
 
 
 
