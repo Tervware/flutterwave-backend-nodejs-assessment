@@ -64,15 +64,17 @@ const { field, condition, condition_value } = rule;
 
 // VALIDATE CONDITION VALUE
 // condition  is required
-if (!condition_value) {
+if (!rule.hasOwnProperty("condition_value")) {
   throw new Error("rule.condition_value is required.");
 }
 
 
 // VALIDATE DATA
-// TODO: Data can be an object string or array
-
-// TODO: validate for wrong type for rule and data
+// Data can be an object, string or array
+if (!(data === Object(data) || typeof data === 'string')) {
+  throw new Error("data should be an object, array or a string.");
+ }
+ 
   return
 
 } 
@@ -91,10 +93,10 @@ export function isInValidRule( validation_data: ValidationData ): any{
         error = condition_value !== field_value ? false : true;
       break;
     case "gt":
-        error = condition_value > field_value ? false : true;
+        error = field_value > condition_value ? false : true;
       break;
     case "gte":
-        error = condition_value >= field_value ? false : true;
+        error = field_value >= condition_value ? false : true;
       break;
     case "contains":
       error = field_value.includes(condition_value) ? false : true; 
